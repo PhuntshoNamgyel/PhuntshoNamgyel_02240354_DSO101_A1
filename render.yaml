@@ -1,8 +1,9 @@
 services:
   - type: web
     name: be-todo
-    env: docker
+    runtime: docker
     dockerfilePath: ./backend/Dockerfile
+    plan: free
     envVars:
       - key: DB_HOST
         sync: false
@@ -19,8 +20,9 @@ services:
 
   - type: web
     name: fe-todo
-    env: docker
+    runtime: docker
     dockerfilePath: ./frontend/Dockerfile
+    plan: free
     envVars:
       - key: REACT_APP_API_URL
         sync: false
