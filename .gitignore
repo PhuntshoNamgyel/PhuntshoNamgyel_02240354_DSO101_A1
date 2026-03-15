@@ -1,0 +1,12 @@
+# Environment files
+.env
+.env.production
+
+# Dependencies
+node_modules/
+
+# Build output
+build/
+
+# Mac files
+.DS_Store
