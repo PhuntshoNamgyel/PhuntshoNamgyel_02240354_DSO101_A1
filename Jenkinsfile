@@ -3,6 +3,9 @@ pipeline {
     tools {
         nodejs 'NodeJS'
     }
+    environment {
+        PATH = "/usr/local/bin:${env.PATH}"
+    }
     stages {
         stage('Checkout') {
             steps {
@@ -41,9 +44,10 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    docker.build('phuntshonamgyel/be-todo:latest', './backend')
-                    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-creds') {
-                        docker.image('phuntshonamgyel/be-todo:latest').push()
+                    sh 'docker build -t phuntshonamgyel/be-todo:latest ./backend'
+                    withCredentials([usernamePassword(credentialsId: 'docker-hub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                        sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
+                        sh 'docker push phuntshonamgyel/be-todo:latest'
                     }
                 }
             }
