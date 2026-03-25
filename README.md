@@ -1,14 +1,7 @@
-# Todo App CI/CD Assignment
-### Phuntsho Namgyel — 02240354
+# Assignment 1: Todo App CI/CD 
 
----
 
-## Student Information
-- **Name:** Phuntsho Namgyel
-- **Student ID:** 02240354
-- **Module:** DSO101 - Continuous Integration and Continuous Deployment
 
----
 
 ## Application Overview
 
