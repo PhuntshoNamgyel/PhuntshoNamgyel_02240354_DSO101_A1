@@ -1,7 +1,6 @@
-# Assignment 1: Todo App CI/CD 
+# Assignment 1: Todo App CI/CD
 
-
-
+---
 
 ## Application Overview
 
